@@ -1,26 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LivroLista from './LivroLista';
+import LivroDados from './LivroDados';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+        <nav className='bg-dark p-3'>
+          <a className='text-white text-decoration-none p-3' href='/'>Catálogo</a>
+          <a className='text-white text-decoration-none p-3' href='/dados'>Novo</a>
+        </nav>
+        <Routes>
+          <Route path='/' element={LivroLista()} />
+          <Route path='dados' element={LivroDados()} />
+        </Routes>
+    </BrowserRouter>
+  ) 
 }
 
 export default App;
